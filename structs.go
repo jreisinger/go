@@ -14,7 +14,7 @@ type Circle struct {
 }
 
 // Function using the Circle
-func circleArea(c Circle) float64 {
+func circleArea(c *Circle) float64 {
     return math.Pi * c.r*c.r
 }
 
@@ -23,12 +23,12 @@ func main() {
     // Initialization of a variable of type Circle
     //var c Circle        // fields set to zeros
     //c := new(Circle)    // returns pointer to the struct
-    c := &Circle{1,2,3}
+    c := Circle{1,2,3}
 
     // Accessing the struct fields
     c.r = 5
 
     // Using the struct as a function argument
-    fmt.Println(circleArea(*c))
+    fmt.Println(circleArea(&c))
 }
 
