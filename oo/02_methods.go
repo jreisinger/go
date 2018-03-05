@@ -13,6 +13,7 @@ type Android struct {
 	Model  string
 }
 
+// Method is just a function with a receiver.
 func (p *Person) talk() {
 	fmt.Println("Hi, my name is", p.Name)
 }
