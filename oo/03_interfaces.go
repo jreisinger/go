@@ -1,5 +1,9 @@
 package main
 
+// Create a few small structs that do what you want, add in methods that you
+// need, and as you build your program, useful interfaces will tend to emerge.
+// There's no need to have them all figured out ahead of time.
+
 import (
 	"fmt"
 	"math"
