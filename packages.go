@@ -7,7 +7,11 @@ package main
 
 import ( "fmt" ; "strings" ; "os" ; "io/ioutil" ; "log" )
 
+//
 // Strings
+//
+
+// strings functions
 func mystrings() {
     // func Contains(s, substr string) bool
     fmt.Println(strings.Contains("test", "es"))
@@ -62,8 +66,11 @@ func mystrings() {
     fmt.Println(str)
 }
 
+//
 // Files and folders
+//
 
+// Open and print a file
 func readFile (fileName string) {
     file, err := os.Open(fileName)
     if err != nil {
@@ -89,8 +96,7 @@ func readFile (fileName string) {
     fmt.Println(str)
 }
 
-// Shorter way to read a file
-
+// Shorter way to open and print a file
 func readFile2 (fileName string) {
     content, err := ioutil.ReadFile(fileName)
     if err != nil {
@@ -100,9 +106,28 @@ func readFile2 (fileName string) {
     fmt.Printf("File contents: %s", content)
 }
 
+// Get the contents of a directory
+func readDir (dirname string) {
+    dir, err := os.Open(dirname)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer dir.Close()
+
+    fileInfos, err := dir.Readdir(-1) // -1 => all dir entries
+    if err != nil {
+        log.Fatal(err)
+    }
+    for _, fi := range fileInfos {
+        fmt.Println(fi.Name())
+    }
+}
+
 func main() {
     mystrings()
 
     readFile("/etc/hosts")
     readFile2("/etc/hosts")
+
+    readDir(".")
 }
