@@ -5,7 +5,7 @@ package main
 // Many of the libraries (packages) included with Go require specialized,
 // domain specific knowledge (e.g. cryptography).
 
-import ( "fmt" ; "strings" ; "os" )
+import ( "fmt" ; "strings" ; "os" ; "io/ioutil" ; "log" )
 
 // Strings
 func mystrings() {
@@ -63,6 +63,7 @@ func mystrings() {
 }
 
 // Files and folders
+
 func readFile (fileName string) {
     file, err := os.Open(fileName)
     if err != nil {
@@ -88,7 +89,20 @@ func readFile (fileName string) {
     fmt.Println(str)
 }
 
+// Shorter way to read a file
+
+func readFile2 (fileName string) {
+    content, err := ioutil.ReadFile(fileName)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("File contents: %s", content)
+}
+
 func main() {
     mystrings()
+
     readFile("/etc/hosts")
+    readFile2("/etc/hosts")
 }
