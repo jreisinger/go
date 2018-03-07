@@ -5,9 +5,9 @@ package main
 // Many of the libraries (packages) included with Go require specialized,
 // domain specific knowledge (e.g. cryptography).
 
-import ( "fmt" ; "strings" )
+import ( "fmt" ; "strings" ; "os" )
 
-// Strings functions
+// Strings
 func mystrings() {
     // func Contains(s, substr string) bool
     fmt.Println(strings.Contains("test", "es"))
@@ -62,6 +62,33 @@ func mystrings() {
     fmt.Println(str)
 }
 
+// Files and folders
+func readFile (fileName string) {
+    file, err := os.Open(fileName)
+    if err != nil {
+        // handle the error here
+        return
+    }
+    defer file.Close()
+
+    // get the file size
+    stat, err := file.Stat()
+    if err != nil {
+        return
+    }
+
+    // read the file
+    bs := make([]byte, stat.Size())
+    _, err = file.Read(bs)
+    if err != nil {
+        return
+    }
+
+    str := string(bs)
+    fmt.Println(str)
+}
+
 func main() {
     mystrings()
+    readFile("/etc/hosts")
 }
