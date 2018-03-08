@@ -25,11 +25,17 @@ func slices() {
     // make a slice (associated with an underlying array) of length 5
     s := make([]int, 10)
 
+    // slice can never be longer than the underlying array
     s[9] = 5
 
     for i, value := range s {
         fmt.Println(i, value)
     }
+
+    // another way to create a slice
+    arr := [5]float64{1,2,3,4,5}
+    s2 := arr[0:5] // [0:], [:5], [:]
+    fmt.Println(s2)
 }
 
 func main() {
