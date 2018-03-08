@@ -33,9 +33,14 @@ func slices() {
     }
 
     // another way to create a slice
+    s2 := []string{"a", "b", "c"}
+    fmt.Println("Slice length:",   len(s2))
+    fmt.Println("Slice capacity:", cap(s2))
+
+    // another way to create a slice
     arr := [5]float64{1,2,3,4,5}
-    s2 := arr[0:5] // [0:], [:5], [:]
-    fmt.Println(s2)
+    s3 := arr[0:5] // [0:], [:5], [:]
+    fmt.Println(s3)
 }
 
 func main() {
