@@ -2,7 +2,7 @@
 //
 // The Go Programming Language, 1.6
 //
-// $ go build gopl.io/ch1/fetchall
+// $ go build fetchall.go
 // $ ./fetchall https://golang.org http://perl.org http://reisinge.net
 
 package main
