@@ -19,7 +19,7 @@ func main() {
 
             i, err := strconv.Atoi(arg)
             if err != nil {
-                fmt.Fprint(os.Stderr, "conv: %v\n", err)
+                fmt.Fprintf(os.Stderr, "conv: %v\n", err)
                 os.Exit(1)
             }
 
