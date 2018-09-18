@@ -11,6 +11,7 @@ import (
     "strconv"
 
     "github.com/jreisinger/go/gopl/ch2/tempconv"
+    "github.com/jreisinger/go/gopl/ch2/lenconv"
 )
 
 func main() {
@@ -25,9 +26,12 @@ func main() {
 
             c := tempconv.Celsius(i)
             f := tempconv.Fahrenheit(i)
+            m := lenconv.Meters(i)
 
             fmt.Printf("%s = %s, %s = %s\n",
                 f, tempconv.FToC(f), c, tempconv.CToF(c))
+            fmt.Printf("%s = %s\n",
+                m, lenconv.MToF(m))
         }
     }
 }

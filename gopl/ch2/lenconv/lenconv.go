@@ -1,6 +1,8 @@
 // Package lenconv performs Meters and Feet conversions.
 package lenconv
 
+import "fmt"
+
 type Meters float64
 type Feet float64
 
