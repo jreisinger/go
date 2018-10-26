@@ -58,5 +58,5 @@ func main() {
 	fmt.Println(kids)
 
     sort.Sort(ByAge(kids))
-    fmt.Println(kids)
+    fmt.Printf("%v\n", kids)
 }
