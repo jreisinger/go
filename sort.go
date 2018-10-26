@@ -8,7 +8,10 @@ import (
 // This is how you sort your own data.
 
 // The sort.Sort function takes a sort.Interface and sorts it.
-// The sort.Interface requires three methods: Len, Less and Swap
+// The sort.Interface requires three methods: 
+// * Len()
+// * Less()
+// * Swap()
 
 type Person struct {
 	Name string
