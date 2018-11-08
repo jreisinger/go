@@ -8,7 +8,7 @@ import (
 // This is how you sort your own data.
 
 // The sort.Sort function takes a sort.Interface and sorts it.
-// The sort.Interface requires three methods: 
+// The sort.Interface requires three methods:
 // * Len()
 // * Less()
 // * Swap()
@@ -36,14 +36,15 @@ func (ps ByName) Swap(i, j int) {
 }
 
 type ByAge []Person
+
 func (ps ByAge) Len() int {
-    return len(ps)
+	return len(ps)
 }
 func (ps ByAge) Less(i, j int) bool {
-    return ps[i].Age < ps[j].Age
+	return ps[i].Age < ps[j].Age
 }
 func (ps ByAge) Swap(i, j int) {
-    ps[i], ps[j] = ps[j], ps[i]
+	ps[i], ps[j] = ps[j], ps[i]
 }
 
 func main() {
@@ -51,12 +52,12 @@ func main() {
 		{"Eli", 2},
 		{"Dado", 2},
 		{"Matu", 4},
-        {"Z", 1},
+		{"Z", 1},
 	}
 
 	sort.Sort(ByName(kids))
 	fmt.Println(kids)
 
-    sort.Sort(ByAge(kids))
-    fmt.Printf("%v\n", kids)
+	sort.Sort(ByAge(kids))
+	fmt.Printf("%v\n", kids)
 }
