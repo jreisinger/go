@@ -10,8 +10,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
-    "path/filepath"
 )
 
 //
@@ -132,10 +132,10 @@ func readDir(dirname string) {
 
 // Walk a directory (folder) recurively
 func walkDir(dirname string) {
-    filepath.Walk(dirname, func(path string, info os.FileInfo, err error) error {
-        fmt.Println(path)
-        return nil
-    })
+	filepath.Walk(dirname, func(path string, info os.FileInfo, err error) error {
+		fmt.Println(path)
+		return nil
+	})
 }
 
 func main() {
@@ -145,5 +145,5 @@ func main() {
 	readFile2("/etc/hosts")
 
 	readDir(".")
-    walkDir("/tmp")
+	walkDir("/tmp")
 }

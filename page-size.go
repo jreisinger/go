@@ -25,7 +25,7 @@ func getPageSize(url string) (int, error) {
 
 // worker is a wrapper for getPageSize to enable concurrency.
 func worker(urlCh chan string, msg chan string, id int) {
-    url := <- urlCh
+	url := <-urlCh
 	length, err := getPageSize(url)
 	if err == nil {
 		msg <- fmt.Sprintf("%s has %d bytes (worker %d)\n", url, length, id)
@@ -38,18 +38,18 @@ func main() {
 	urlCh := make(chan string)
 	msgCh := make(chan string)
 
-    // Start workers
+	// Start workers
 	for i := 0; i < len(os.Args)-1; i++ {
-        fmt.Fprintf(os.Stderr, "Started worker %d\n", i)
+		fmt.Fprintf(os.Stderr, "Started worker %d\n", i)
 		go worker(urlCh, msgCh, i)
 	}
 
-    // Send urls to workers
+	// Send urls to workers
 	for _, url := range os.Args[1:] {
-        urlCh <- url
+		urlCh <- url
 	}
 
-    // Get results from workers
+	// Get results from workers
 	for range os.Args[1:] {
 		fmt.Printf("%s", <-msgCh)
 	}
