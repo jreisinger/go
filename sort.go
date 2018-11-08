@@ -20,7 +20,7 @@ type Person struct {
 
 type ByName []Person
 
-// Return the length if the thing we are sorting.
+// Return the length of the thing we are sorting.
 func (ps ByName) Len() int {
 	return len(ps)
 }
