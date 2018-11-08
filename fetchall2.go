@@ -1,3 +1,6 @@
+// This is from video course Go Introduction (I think).
+// I named it fetchall2.go since it's similar to fetchall.go
+
 package main
 
 import (
