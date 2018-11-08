@@ -27,7 +27,7 @@ func hello(res http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-    // handle "/hello" route by calling hello()
+	// handle "/hello" route by calling hello()
 	http.HandleFunc("/hello", hello)
 
 	http.ListenAndServe(":9000", nil)
