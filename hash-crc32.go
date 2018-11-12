@@ -1,11 +1,9 @@
 // A hash function takes a set of data and reduces it to a smaller fixed size.
 
 // Hash functions in Go are broken into two categories:
-// * non-cryptographic (ex. hash/adler32, hash/crc32, hash/fnv)
-// * cryptographic - hard to reverse (ex. crypto/sha1)
-
-// A common use for crc32 is to compare two files. If the Sum32 value for both
-// files is the same, it's highly likely that the file are the same.
+//
+// * non-cryptographic (ex. hash/crc32, hash/adler32, hash/fnv)
+// * cryptographic - similar but hard to reverse (ex. crypto/sha1)
 
 // Taken from Introducing Go.
 
@@ -19,6 +17,8 @@ import (
 	"os"
 )
 
+// A common use for crc32 is to compare two files. If the Sum32 value for both
+// files is the same, it's highly likely that the files are the same.
 func getHash(fileName string) (uint32, error) {
 	// open the file
 	f, err := os.Open(fileName)
