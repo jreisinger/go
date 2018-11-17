@@ -24,7 +24,7 @@ func main() {
 	a := new(Android)
 	a.Name = "R2D2"
 
-    // A method call
+	// A method call
 	p.talk()
 	a.talk()
 }
