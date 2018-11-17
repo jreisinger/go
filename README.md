@@ -1,6 +1,6 @@
 # go
 
-All vars in Go are initialized to their zero values:
+All vars in Go are initialized to their zero values when declared:
 
 * numeric types -> `0`
 * strings -> `""`

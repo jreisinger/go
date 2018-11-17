@@ -4,7 +4,7 @@ import "fmt"
 
 // returns a pointer to int (*int), i.e. an address where an int is stored
 func f() *int {
-	v := 0
+	v := 0    // declare and initialize a variable
 	v = 1     // update the variable directly (through a name)
 	return &v // address-of operator
 }
@@ -18,6 +18,6 @@ func main() {
 	fmt.Println(p)  // same address as before ^
 	fmt.Println(*p) // "2"
 
-	// each call to f() return a distinct value
+	// each call to f() returns a distinct value
 	fmt.Println(f() == f()) // "false"
 }

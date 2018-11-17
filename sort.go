@@ -19,24 +19,20 @@ type Person struct {
 }
 
 type ByName []Person
-
 // Return the length of the thing we are sorting.
 func (ps ByName) Len() int {
 	return len(ps)
 }
-
 // Is item at position i less than the item at position j?
 func (ps ByName) Less(i, j int) bool {
 	return ps[i].Name < ps[j].Name
 }
-
 // Swap the items.
 func (ps ByName) Swap(i, j int) {
 	ps[i], ps[j] = ps[j], ps[i]
 }
 
 type ByAge []Person
-
 func (ps ByAge) Len() int {
 	return len(ps)
 }
