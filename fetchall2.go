@@ -43,7 +43,7 @@ func main() {
 
 	// Start workers
 	for i := 0; i < len(os.Args)-1; i++ {
-		fmt.Fprintf(os.Stderr, "Started worker %d\n", i)
+		fmt.Fprintf(os.Stderr, "Starting worker %d\n", i)
 		go worker(urlCh, msgCh, i)
 	}
 
