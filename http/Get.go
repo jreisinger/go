@@ -1,4 +1,6 @@
 // Get the representation of a resource.
+//
+// From Network Programming with Go, ch. 8
 package main
 
 import (
