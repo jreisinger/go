@@ -3,35 +3,40 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
 	"regexp"
 )
 
 func main() {
+	log.SetPrefix("grep: ")
+	log.SetFlags(0) // no extra info in log messages
+
 	if len(os.Args) != 3 {
-		fmt.Fprintf(os.Stderr, "Usage: %s <regex> <file>\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "Usage: %v PATTERN FILE\n", os.Args[0])
 		os.Exit(1)
 	}
 
-	re, err := regexp.Compile(os.Args[1])
+	pattern, err := regexp.Compile(os.Args[1])
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
+		log.Fatalln(err)
 	}
 
-	f, err := os.Open(os.Args[2])
+	file, err := os.Open(os.Args[2])
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
+		log.Fatalln(err)
 	}
-	defer f.Close()
+	defer file.Close()
 
-	scanner := bufio.NewScanner(f)
+	scanner := bufio.NewScanner(file)
 	//scanner.Split(bufio.ScanLines) // default
 	for scanner.Scan() {
 		line := scanner.Text()
-		if re.MatchString(line) {
+		if pattern.MatchString(line) {
 			fmt.Println(line)
 		}
+	}
+	if err := scanner.Err(); err != nil {
+		log.Fatalln(err)
 	}
 }
