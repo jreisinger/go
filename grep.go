@@ -1,3 +1,4 @@
+// https://yourbasic.org/golang/write-command-line-application/
 package main
 
 import (
