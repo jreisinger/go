@@ -1,17 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
-// args is a variadic parameter
-func add(args ...int) int {
+// ints is a variadic parameter
+func addInts(ints ...int) int {
 	total := 0
-	for _, v := range args {
+	for _, v := range ints {
 		total += v
 	}
 	return total
 }
 
+func printArgs(args ...string) {
+	for _, a := range args {
+		fmt.Println(a)
+	}
+}
+
 func main() {
-	fmt.Println(add(1, 2))
-	fmt.Println(add(1, 2, 3))
+	fmt.Println(addInts(1, 2))
+	fmt.Println(addInts(1, 2, 3))
+
+	// you can't leave out '...'
+	printArgs(os.Args[1:]...)
 }
