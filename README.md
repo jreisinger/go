@@ -1,4 +1,4 @@
-# go
+# Go programming language (Golang)
 
 All vars in Go are initialized to their zero values when declared:
 
