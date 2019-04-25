@@ -1,5 +1,7 @@
 # Go programming language (Golang)
 
+## Variables
+
 All vars in Go are initialized to their zero values when declared:
 
 * numeric types -> `0`
@@ -10,3 +12,9 @@ All vars in Go are initialized to their zero values when declared:
 Receive from channel `<- ch`
 
 Send to channel `ch <-`
+
+*array* - numbered sequence of elements of a single type with a fixed length
+
+*slice* - segment of an array; like an array, it's indexable and has a length; unlike array, this length is allowed to change
+
+*map* - unordered collection of key/value pairs (associative array, hash table, dictionary)
