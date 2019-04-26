@@ -18,3 +18,5 @@ Send to channel `ch <-`
 *slice* - segment of an array; like an array, it's indexable and has a length; unlike array, this length is allowed to change
 
 *map* - unordered collection of key/value pairs (associative array, hash table, dictionary)
+
+*pointer* - references a location in memory where a value is stored rather than the value itself
