@@ -14,8 +14,7 @@ func main() {
 	log.SetFlags(0) // no extra info in log messages
 
 	if len(os.Args) != 3 {
-		fmt.Fprintf(os.Stderr, "Usage: %v PATTERN FILE\n", os.Args[0])
-		os.Exit(1)
+		log.Fatalf("Usage: %v PATTERN FILE\n", os.Args[0])
 	}
 
 	pattern, err := regexp.Compile(os.Args[1])
