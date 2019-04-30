@@ -1,3 +1,4 @@
+// Defer-panic-recover shows how to recover from a run time panic.
 package main
 
 import (
@@ -10,6 +11,7 @@ func main() {
     protect(mightPanic)
 }
 
+// MightPanic sometimes panics, i.e. it crashes the program.
 func mightPanic() {
     s := rand.NewSource(time.Now().UnixNano())
     r := rand.New(s)
@@ -19,9 +21,10 @@ func mightPanic() {
     }
 }
 
+// Protect protects the program from crashing.
 func protect(f func()) {
     defer func() {
-        log.Println("done")
+        log.Println("done") // this will run always
         if x := recover(); x != nil {
             log.Printf("run time panic: %v", x)
         }
