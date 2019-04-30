@@ -8,19 +8,19 @@ type Person struct {
 	Name string
 }
 
-type Android struct {
-	Person // embedded type (or anonymous field)
-	Model  string
-}
-
 // Method is just a function with a receiver (old OO lingo).
 func (p *Person) talk() {
 	fmt.Println("Hi, my name is", p.Name)
 }
 
+type Android struct {
+	Person // embedded type (or anonymous field)
+	Model  string
+}
+
 func main() {
 	// Object instantiation - way 1
-	p := Person{Name: "John"}
+	p := &Person{Name: "John"}
 
 	// Object instantiation - way 2
 	a := new(Android)

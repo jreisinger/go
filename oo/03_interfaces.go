@@ -33,8 +33,8 @@ func distance(x1, y1, x2, y2 float64) float64 {
 	return math.Sqrt(a*a + b*b)
 }
 
-// Interface defines a method set, i.e. the list of methods a type must have in
-// order to implement the interface.
+// Interface defines a method set, i.e. the list of methods 
+// a type must have in order to implement the interface.
 type Shape interface {
 	area() float64
 	//perimeter() float64

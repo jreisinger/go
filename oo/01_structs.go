@@ -5,10 +5,10 @@ import (
 	"math"
 )
 
-// New type definition
-//// type   - defines new type
-//// Circle - name of the type
-//// struct - type that contains named fields
+// New type definition:
+// * type   - defines new type
+// * Circle - name of the type
+// * struct - type that contains named fields
 type Circle struct {
 	//x float64
 	//y float64
@@ -16,16 +16,16 @@ type Circle struct {
 	x, y, r float64
 }
 
-// Function using the Circle
+// Function using the Circle type.
 func circleArea(c *Circle) float64 {
 	return math.Pi * c.r * c.r
 }
 
 func main() {
 	// Initialization of a variable of type Circle
-	//var c Circle        // fields set to zeros
-	//c := new(Circle)    // returns pointer to the struct
-	c := Circle{1, 2, 3}
+	//var c Circle       // fields set to zeros
+	//c := new(Circle)   // returns pointer to the struct
+	c := Circle{1, 2, 3} // usually used with & so var can be changed by methods
 
 	// Accessing the struct fields
 	c.r = 5
