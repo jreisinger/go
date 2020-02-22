@@ -1,6 +1,6 @@
 // Fetch URLs in parallel and report their times and sizes.
 //
-// The Go Programming Language, 1.6
+// The Go Programming Language, 1.6: https://github.com/adonovan/gopl.io/tree/master/ch1/fetchall
 //
 // $ go build fetchall.go
 // $ ./fetchall https://golang.org http://perl.org http://reisinge.net
