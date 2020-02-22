@@ -28,7 +28,8 @@ func binarySearch(item int, list []int) int {
 	return -1
 }
 
-func stringToInts(ss []string) []int {
+// stringsToInts converts a string slice into int slice.
+func stringsToInts(ss []string) []int {
 	var is []int
 	for _, s := range ss {
 		i, err := strconv.Atoi(s)
@@ -46,10 +47,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	item, err := strconv.Atoi(os.Args[1])
-	if err != nil {
-		log.Fatal(err)
-	}
-	list := stringToInts(os.Args[2:])
-	fmt.Println(binarySearch(item, list))
+	ints := stringsToInts(os.Args[1:])
+	fmt.Println(binarySearch(ints[0], ints[1:]))
 }
